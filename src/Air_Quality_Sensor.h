@@ -30,15 +30,16 @@
 #ifndef __AIR_QUALITY_SENSOR_H__
 #define __AIR_QUALITY_SENSOR_H__
 
-#include "Arduino.h"
+#include "Particle.h"
 
-class AirQualitySensor {
+class AirQualitySensor
+{
 public:
     AirQualitySensor(int pin);
 
     bool init(void);
-    int  slope(void);
-    int  getValue(void);
+    int slope(void);
+    int getValue(void);
 
     static const int FORCE_SIGNAL;
     static const int HIGH_POLLUTION;
@@ -46,14 +47,14 @@ public:
     static const int FRESH_AIR;
 
 protected:
-    int  _pin;
+    int _pin;
 
-    int  _lastVoltage;
-    int  _currentVoltage;
-    int  _standardVoltage;
-    
+    int _lastVoltage;
+    int _currentVoltage;
+    int _standardVoltage;
+
     long _voltageSum;
-    int  _volSumCount;
+    int _volSumCount;
     long _lastStdVolUpdated;
 
     void updateStandardVoltage(void);
